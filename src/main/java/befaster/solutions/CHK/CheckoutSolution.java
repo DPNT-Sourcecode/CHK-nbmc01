@@ -18,9 +18,11 @@ public class CheckoutSolution {
             if(!mapOfValidItems.containsKey(thisSku)){
                 return -1;
             }else{
+                int skuCount=0;
                 // count number of items of this particular sku
-                if(remainingSkusToProcess.contains(thisSku)){
-                    
+                while(remainingSkusToProcess.indexOf(thisSku)!=-1){
+                    skuCount++;
+                    remainingSkusToProcess.replace()
                 }
                 // increment total price
                 // remove skus from remainingSkusToProcess String
@@ -60,3 +62,4 @@ public class CheckoutSolution {
         }
     }
 }
+
