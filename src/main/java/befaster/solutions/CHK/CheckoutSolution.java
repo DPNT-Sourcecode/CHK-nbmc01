@@ -1,17 +1,20 @@
 package befaster.solutions.CHK;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        List<Item> listOfValidItems = new ArrayList<>();
-        listOfValidItems.add(new Item("A",50,3,130));
-        listOfValidItems.add(new Item("B",30,2,45));
-        listOfValidItems.add(new Item("C",20));
-        listOfValidItems.add(new Item("D",15));
+        Map<String,Item> mapOfValidItems = new HashMap<>();
+        mapOfValidItems.put("A",new Item("A",50,3,130));
+        mapOfValidItems.put("B",new Item("B",30,2,45));
+        mapOfValidItems.put("C",new Item("C",20));
+        mapOfValidItems.put("D",new Item("D",15));
 
-        
+        char[] skusCharArr = skus.toCharArray();
+        for(char thisSku:skusCharArr){
+            
+        }
     }
 
     class Item{
@@ -45,3 +48,4 @@ public class CheckoutSolution {
         }
     }
 }
+
