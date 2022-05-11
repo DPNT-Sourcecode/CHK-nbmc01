@@ -79,7 +79,7 @@ public class CheckoutSolution {
             }else if (bogOff){
                 int itemsAtFullPrice=noItems%this.bogOffGet;
                 int bogOffLots = (noItems-itemsAtFullPrice)/bogOffGet;
-                return bogOffLots*this.bogOffBuy*this.pricePerItem;
+                return (bogOffLots*this.bogOffBuy+itemsAtFullPrice)*this.pricePerItem;
             }else{
                 int itemsAtFullPrice=noItems%this.specialReqNum;
                 int noDiscountedLots=(noItems-itemsAtFullPrice)/this.specialReqNum;
@@ -88,3 +88,4 @@ public class CheckoutSolution {
         }
     }
 }
+
