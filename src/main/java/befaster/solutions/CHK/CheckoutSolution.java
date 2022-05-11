@@ -23,7 +23,7 @@ public class CheckoutSolution {
                 // count number of items of this particular sku
                 while(remainingSkusToProcess.indexOf(thisSku)!=-1){
                     skuCount++;
-                    remainingSkusToProcess.replace(String.thisSku,'');
+                    remainingSkusToProcess = remainingSkusToProcess.replaceFirst(Character.toString(thisSku),"");
                 }
                 // increment total price
                 totalPrice+=mapOfValidItems.get(thisSku).calcPrice(skuCount);
@@ -63,6 +63,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
