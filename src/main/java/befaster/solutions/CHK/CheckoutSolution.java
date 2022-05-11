@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
+        skus = skus.toUpperCase();
         Map<Character,Item> mapOfValidItems = new HashMap<>();
         mapOfValidItems.put('A',new Item("A",50,3,130));
         mapOfValidItems.put('B',new Item("B",30,2,45));
@@ -62,4 +63,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
