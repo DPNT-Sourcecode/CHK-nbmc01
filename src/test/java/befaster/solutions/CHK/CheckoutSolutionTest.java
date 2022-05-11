@@ -16,10 +16,16 @@ public class CheckoutSolutionTest extends TestCase {
         assert(chk.checkout("aCC").equals(-1));
     }
 
-    public void testCheckout_R2(){
+    public void testCheckout_bogOff(){
         chk = new CheckoutSolution();
         assert(chk.checkout("EEB").equals(80));
         assert(chk.checkout("BEE").equals(80));
+    }
+
+    public void testCheckout_chooseCorrectOffer(){
+        chk = new CheckoutSolution();
+        assert(chk.checkout("AAAAA").equals(200));
+        assert(chk.checkout("AAAAAA").equals(250));
     }
 
 }
