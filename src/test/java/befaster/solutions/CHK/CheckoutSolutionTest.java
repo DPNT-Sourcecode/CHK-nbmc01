@@ -9,10 +9,11 @@ public class CheckoutSolutionTest extends TestCase {
 
     @Before
     public void setup(){
-        chk = new CheckoutSolution();
+//        chk = new CheckoutSolution();
     }
 
     public void testCheckout() {
+        chk = new CheckoutSolution();
         assert(chk.checkout("AAA").equals(130));
     }
 }
