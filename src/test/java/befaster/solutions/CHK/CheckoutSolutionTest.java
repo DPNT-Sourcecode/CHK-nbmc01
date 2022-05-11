@@ -1,19 +1,16 @@
 package befaster.solutions.CHK;
 
 import junit.framework.TestCase;
-import org.junit.Before;
 
 public class CheckoutSolutionTest extends TestCase {
 
     private CheckoutSolution chk;
 
-    @Before
-    public void setup(){
-//        chk = new CheckoutSolution();
-    }
-
     public void testCheckout() {
         chk = new CheckoutSolution();
         assert(chk.checkout("AAA").equals(130));
+        assert(chk.checkout("B").equals(30));
+        assert(chk.checkout("BBB").equals(45+30));
+        assert(chk.checkout("AACC").equals(2*50+2*20));
     }
 }

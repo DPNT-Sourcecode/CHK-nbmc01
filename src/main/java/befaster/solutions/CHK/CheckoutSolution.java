@@ -19,6 +19,9 @@ public class CheckoutSolution {
                 return -1;
             }else{
                 // count number of items of this particular sku
+                if(remainingSkusToProcess.contains(thisSku)){
+                    
+                }
                 // increment total price
                 // remove skus from remainingSkusToProcess String
             }
@@ -57,6 +60,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
