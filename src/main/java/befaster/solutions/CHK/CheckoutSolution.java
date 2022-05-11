@@ -5,7 +5,9 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        skus = skus.toUpperCase();
+        // 2 server tests failed when passed in lower case inputs, I specifically allowed for this case
+        // I will comment out the line below now and add another test
+        // skus = skus.toUpperCase();
         Map<Character,Item> mapOfValidItems = new HashMap<>();
         mapOfValidItems.put('A',new Item("A",50,3,130));
         mapOfValidItems.put('B',new Item("B",30,2,45));
