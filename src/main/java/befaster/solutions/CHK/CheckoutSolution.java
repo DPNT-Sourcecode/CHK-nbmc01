@@ -39,12 +39,18 @@ public class CheckoutSolution {
         private int pricePerItem;
         private int specialReqNum;
         private int specialPrice;
+        private boolean bogOff;
+        private int bogOffBuy;
+        private int bogOffGet;
 
         public Item(String name, int pricePerItem) {
             this.name = name;
             this.pricePerItem = pricePerItem;
             this.specialReqNum = -1;
             this.specialPrice = -1;
+            this.bogOff = false;
+            this.bogOffBuy = -1;
+            this.bogOffGet = -1;
         }
 
         public Item(String name, int pricePerItem, int specialReqNum, int specialPrice) {
@@ -52,11 +58,24 @@ public class CheckoutSolution {
             this.pricePerItem = pricePerItem;
             this.specialReqNum = specialReqNum;
             this.specialPrice = specialPrice;
+            this.bogOff = false;
+            this.bogOffBuy = -1;
+            this.bogOffGet = -1;
+        }
+
+        public Item(String name, int pricePerItem, boolean bogOff, int bogOffBuy, int bogOffGet) {
+            this.name = name;
+            this.pricePerItem = pricePerItem;
+            this.bogOff = bogOff;
+            this.bogOffBuy = bogOffBuy;
+            this.bogOffGet = bogOffGet;
         }
 
         public int calcPrice(int noItems){
             if(this.specialReqNum==-1||noItems<this.specialReqNum){
                 return noItems*pricePerItem;
+            }else if (bogOff){
+
             }else{
                 int itemsAtFullPrice=noItems%this.specialReqNum;
                 int noDiscountedLots=(noItems-itemsAtFullPrice)/this.specialReqNum;
@@ -65,7 +84,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
