@@ -13,6 +13,6 @@ public class CheckoutSolutionTest extends TestCase {
     }
 
     public void testCheckout() {
-        assertThat(chk.checkout("AAA"),equalTo(130));
+        assert(chk.checkout("AAA").equals(130));
     }
 }
