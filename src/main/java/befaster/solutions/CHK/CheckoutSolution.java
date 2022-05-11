@@ -13,6 +13,7 @@ public class CheckoutSolution {
         mapOfValidItems.put('B',new Item("B",30,2,45));
         mapOfValidItems.put('C',new Item("C",20));
         mapOfValidItems.put('D',new Item("D",15));
+        mapOfValidItems.put('E',new Item("E",40,true,1,2));
 
         char[] skusCharArr = skus.toCharArray();
         int totalPrice = 0;
@@ -40,8 +41,8 @@ public class CheckoutSolution {
         private int specialReqNum;
         private int specialPrice;
         private boolean bogOff;
-        private int bogOffBuy;
-        private int bogOffGet;
+        private int bogOffBuy; // maybe confusingly named, how many items you have to pay for in a bogOff offer
+        private int bogOffGet; // how many items you get per bogOff offer
 
         public Item(String name, int pricePerItem) {
             this.name = name;
@@ -64,6 +65,7 @@ public class CheckoutSolution {
         }
 
         public Item(String name, int pricePerItem, boolean bogOff, int bogOffBuy, int bogOffGet) {
+            // here I've added another constructor to save breaking existing code (excuse over commenting :) )
             this.name = name;
             this.pricePerItem = pricePerItem;
             this.bogOff = bogOff;
@@ -75,7 +77,9 @@ public class CheckoutSolution {
             if(this.specialReqNum==-1||noItems<this.specialReqNum){
                 return noItems*pricePerItem;
             }else if (bogOff){
-
+                int itemsAtFullPrice=noItems%this.bogOffGet;
+                int bogOffLots = (noItems-itemsAtFullPrice)/bogOffGet;
+                return bogOffLots*this.bogOffBuy*this.pricePerItem;
             }else{
                 int itemsAtFullPrice=noItems%this.specialReqNum;
                 int noDiscountedLots=(noItems-itemsAtFullPrice)/this.specialReqNum;
