@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        Map<String,Item> mapOfValidItems = new HashMap<>();
-        mapOfValidItems.put("A",new Item("A",50,3,130));
-        mapOfValidItems.put("B",new Item("B",30,2,45));
-        mapOfValidItems.put("C",new Item("C",20));
-        mapOfValidItems.put("D",new Item("D",15));
+        Map<Character,Item> mapOfValidItems = new HashMap<>();
+        mapOfValidItems.put('A',new Item("A",50,3,130));
+        mapOfValidItems.put('B',new Item("B",30,2,45));
+        mapOfValidItems.put('C',new Item("C",20));
+        mapOfValidItems.put('D',new Item("D",15));
 
         char[] skusCharArr = skus.toCharArray();
         for(char thisSku:skusCharArr){
-            
+            if(mapOfValidItems.containsKey())
         }
     }
 
@@ -48,4 +48,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
