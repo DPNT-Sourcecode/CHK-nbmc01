@@ -13,14 +13,17 @@ public class CheckoutSolution {
 
         char[] skusCharArr = skus.toCharArray();
         int totalPrice = 0;
-        
+        String remainingSkusToProcess = skus;
         for(char thisSku:skusCharArr){
             if(!mapOfValidItems.containsKey(thisSku)){
                 return -1;
             }else{
                 // count number of items of this particular sku
+                // increment total price
+                // remove skus from remainingSkusToProcess String
             }
         }
+        return -1;
     }
 
     class Item{
