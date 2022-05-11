@@ -9,11 +9,12 @@ public class CheckoutSolution {
         // I will comment out the line below now and add another test
         // skus = skus.toUpperCase();
         Map<Character,Item> mapOfValidItems = new HashMap<>();
+        Item B = new Item("B",30,2,45);
         mapOfValidItems.put('A',new Item("A",50,3,130));
-        mapOfValidItems.put('B',new Item("B",30,2,45));
+        mapOfValidItems.put('B',B);
         mapOfValidItems.put('C',new Item("C",20));
         mapOfValidItems.put('D',new Item("D",15));
-        mapOfValidItems.put('E',new Item("E",40,true,1,2));
+        mapOfValidItems.put('E',new Item("E",40,B,1,2));
 
         char[] skusCharArr = skus.toCharArray();
         int totalPrice = 0;
@@ -28,6 +29,16 @@ public class CheckoutSolution {
                     skuCount++;
                     remainingSkusToProcess = remainingSkusToProcess.replaceFirst(Character.toString(thisSku),"");
                 }
+                // check for bogOffs
+                Item bogOffItem = mapOfValidItems.get(thisSku).getBogOffItem();
+                if(bogOffItem!=null){
+                    int bogOffBuy = mapOfValidItems.get(thisSku).getBogOffBuy();
+                    int bogOffLots = skuCount/bogOffBuy;
+                    int noFreeItems = bogOffLots*mapOfValidItems.get(thisSku).getBogOffGet();
+                    for(int freeItemID=1;freeItemID<=noFreeItems;freeItemID++){
+                        remainingSkusToProcess = remainingSkusToProcess.replaceFirst(bogOffItem.getName(),"");
+                    }
+                }
                 // increment total price
                 totalPrice+=mapOfValidItems.get(thisSku).calcPrice(skuCount);
             }
@@ -40,7 +51,7 @@ public class CheckoutSolution {
         private int pricePerItem;
         private int specialReqNum;
         private int specialPrice;
-        private boolean bogOff;
+        private Item bogOffItem;
         private int bogOffBuy; // maybe confusingly named, how many items you have to pay for in a bogOff offer
         private int bogOffGet; // how many items you get per bogOff offer
 
@@ -49,7 +60,7 @@ public class CheckoutSolution {
             this.pricePerItem = pricePerItem;
             this.specialReqNum = -1;
             this.specialPrice = -1;
-            this.bogOff = false;
+            this.bogOffItem = null;
             this.bogOffBuy = -1;
             this.bogOffGet = -1;
         }
@@ -59,16 +70,15 @@ public class CheckoutSolution {
             this.pricePerItem = pricePerItem;
             this.specialReqNum = specialReqNum;
             this.specialPrice = specialPrice;
-            this.bogOff = false;
+            this.bogOffItem = null;
             this.bogOffBuy = -1;
             this.bogOffGet = -1;
         }
 
-        public Item(String name, int pricePerItem, boolean bogOff, int bogOffBuy, int bogOffGet) {
-            // here I've added another constructor to save breaking existing code (excuse over commenting :) )
+        public Item(String name, int pricePerItem, Item bogOffItem, int bogOffBuy, int bogOffGet) {
             this.name = name;
             this.pricePerItem = pricePerItem;
-            this.bogOff = bogOff;
+            this.bogOffItem = bogOffItem;
             this.bogOffBuy = bogOffBuy;
             this.bogOffGet = bogOffGet;
         }
@@ -76,15 +86,32 @@ public class CheckoutSolution {
         public int calcPrice(int noItems){
             if(this.specialReqNum==-1||noItems<this.specialReqNum){
                 return noItems*pricePerItem;
-            }else if (bogOff){
-                int itemsAtFullPrice=noItems%this.bogOffGet;
-                int bogOffLots = (noItems-itemsAtFullPrice)/bogOffGet;
-                return (bogOffLots*this.bogOffBuy+itemsAtFullPrice)*this.pricePerItem;
+            }else if (bogOffItem!=null){
+//                int itemsAtFullPrice=noItems%this.bogOffGet;
+//                int bogOffLots = (noItems-itemsAtFullPrice)/bogOffGet;
+//                return (bogOffLots*this.bogOffBuy+itemsAtFullPrice)*this.pricePerItem;
+                return noItems*pricePerItem;
             }else{
                 int itemsAtFullPrice=noItems%this.specialReqNum;
                 int noDiscountedLots=(noItems-itemsAtFullPrice)/this.specialReqNum;
                 return itemsAtFullPrice*this.pricePerItem + noDiscountedLots*this.specialPrice;
             }
+        }
+
+        public Item getBogOffItem() {
+            return bogOffItem;
+        }
+
+        public int getBogOffGet() {
+            return bogOffGet;
+        }
+
+        public int getBogOffBuy() {
+            return bogOffBuy;
+        }
+
+        public String getName() {
+            return name;
         }
     }
 }

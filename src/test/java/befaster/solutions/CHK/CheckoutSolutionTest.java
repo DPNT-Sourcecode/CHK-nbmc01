@@ -18,9 +18,8 @@ public class CheckoutSolutionTest extends TestCase {
 
     public void testCheckout_R2(){
         chk = new CheckoutSolution();
-        assert(chk.checkout("EEEE").equals(80));
-        assert(chk.checkout("EEE").equals(80));
-        assert(chk.checkout("E").equals(40));
+        assert(chk.checkout("EEB").equals(80));
+        assert(chk.checkout("BEE").equals(80));
     }
 
 }
