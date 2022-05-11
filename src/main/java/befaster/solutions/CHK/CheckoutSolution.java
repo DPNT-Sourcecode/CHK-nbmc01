@@ -23,13 +23,13 @@ public class CheckoutSolution {
                 // count number of items of this particular sku
                 while(remainingSkusToProcess.indexOf(thisSku)!=-1){
                     skuCount++;
-                    remainingSkusToProcess.replace()
+                    remainingSkusToProcess.replace(String.thisSku,'');
                 }
                 // increment total price
-                // remove skus from remainingSkusToProcess String
+                totalPrice+=mapOfValidItems.get(thisSku).calcPrice(skuCount);
             }
         }
-        return -1;
+        return totalPrice;
     }
 
     class Item{
@@ -63,5 +63,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
