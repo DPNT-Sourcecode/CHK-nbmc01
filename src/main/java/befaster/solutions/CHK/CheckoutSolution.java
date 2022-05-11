@@ -12,8 +12,14 @@ public class CheckoutSolution {
         mapOfValidItems.put('D',new Item("D",15));
 
         char[] skusCharArr = skus.toCharArray();
+        int totalPrice = 0;
+        
         for(char thisSku:skusCharArr){
-            if(mapOfValidItems.containsKey())
+            if(!mapOfValidItems.containsKey(thisSku)){
+                return -1;
+            }else{
+                // count number of items of this particular sku
+            }
         }
     }
 
@@ -48,5 +54,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
