@@ -10,17 +10,16 @@ public class CheckoutSolutionTest extends TestCase {
 
     public void testCheckout_R1() {
         chk = new CheckoutSolution();
-        assert(chk.checkout("AAA").equals(130));
-        assert(chk.checkout("B").equals(30));
-        assert(chk.checkout("BBB").equals(45+30));
-        assert(chk.checkout("AACC").equals(2*50+2*20));
+        assert(Objects.equals(chk.checkout("AAA"),130));
+        assert(Objects.equals(chk.checkout("B"),30));
+        assert(Objects.equals(chk.checkout("BBB"),(45+30)));
+        assert(Objects.equals(chk.checkout("AACC"),(2*50+2*20)));
     }
 
     public void testCheckout_invalidInputs(){
         chk = new CheckoutSolution();
-        int aResult = chk.checkout("+CC");
-        assert(chk.checkout("+CC").equals(-1));
-        assert(chk.checkout("aCC").equals(-1));
+        assert(Objects.equals(chk.checkout("+CC"),-1));
+        assert(Objects.equals(chk.checkout("aCC"),-1));
     }
 
     public void testCheckout_bogOff(){
@@ -43,3 +42,4 @@ public class CheckoutSolutionTest extends TestCase {
     }
 
 }
+
