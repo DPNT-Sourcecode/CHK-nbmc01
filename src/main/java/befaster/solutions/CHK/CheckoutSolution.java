@@ -56,6 +56,25 @@ public class CheckoutSolution {
         offersList.add(new SpecialOffer(3*40,"UUUU",validItemMap));
         offersList.add(new SpecialOffer(90,"VV",validItemMap));
         offersList.add(new SpecialOffer(130,"VVV",validItemMap));
+
+        // add combo offers
+        ComboOffers comboOffers = new ComboOffers();
+        List<String> unchosenSkus = new ArrayList<>();
+        // simulate an offer where can buy any three of items S, T, X, Y, Z for a fixed amount
+        char[] involvedSkus = {'S', 'T', 'X', 'Y', 'Z'};
+        int reqNoItems = 3;
+        for (char thisSku : involvedSkus) {
+            for (int itemID = 0; itemID < reqNoItems; itemID++) {
+                // need as many of each sku as there are req number of items, to allow for repetition, eg someone buys "AAA"
+                unchosenSkus.add(thisSku + "");
+            }
+        }
+        comboOffers.makeCombinations(unchosenSkus, reqNoItems, "");
+        Set<String> allPossibleCombos = comboOffers.getCombos();
+        for(String combo:allPossibleCombos){
+            offersList.add(new SpecialOffer(45,combo,validItemMap));
+        }
+
         Collections.sort(offersList,Collections.reverseOrder()); // use overridden compareTo method to sort so highest saving at top of list
 
         int totalPrice = 0;

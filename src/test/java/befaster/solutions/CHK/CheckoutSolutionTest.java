@@ -53,4 +53,13 @@ public class CheckoutSolutionTest extends TestCase {
         assert(Objects.equals(chk.checkout("RRRHPPRRRRRJQQRRQRPHPZPKHKHPPPPPH"),expectedCost));
     }
 
+    public void testCheckout_comboOffer(){
+        chk = new CheckoutSolution();
+        assert(Objects.equals(chk.checkout("SXZ"),45));
+        assert(Objects.equals(chk.checkout("SSSZZZ"),90));
+        assert(Objects.equals(chk.checkout("TTX"),45));
+        assert(Objects.equals(chk.checkout("ZYSS"),45+20));
+
+    }
+
 }

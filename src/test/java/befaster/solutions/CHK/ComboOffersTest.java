@@ -48,6 +48,5 @@ public class ComboOffersTest extends TestCase {
         Set<String> allPossibleCombos = comboOffers.getCombos();
         // 'I think!' there should be 35 combinations of 5 letters in 3 positions without repeats (ie treat AB and BA as the same)
         assert (Objects.equals(allPossibleCombos.size(), 35));
-
     }
 }
