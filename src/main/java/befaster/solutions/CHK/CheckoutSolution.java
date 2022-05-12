@@ -12,6 +12,13 @@ public class CheckoutSolution {
         validItemMap.put('D',new Item('D',15));
         validItemMap.put('E',new Item('E',40));
 
+        // check input valid
+        for(char thisSku:skus.toCharArray()){
+            if(!validItemMap.containsKey(thisSku)){
+                return -1;
+            }
+        }
+
         List<SpecialOffer> offersList = new ArrayList<>();
         offersList.add(new SpecialOffer(130,"AAA",validItemMap));
         offersList.add(new SpecialOffer(200,"AAAAA",validItemMap));
@@ -44,3 +51,4 @@ public class CheckoutSolution {
         return totalPrice;
     }
 }
+
