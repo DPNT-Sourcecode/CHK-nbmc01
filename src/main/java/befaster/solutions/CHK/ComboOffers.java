@@ -15,7 +15,10 @@ public class ComboOffers {
         // need to generate list of strings of all possible combinations of skus for new type of offers
         // can then add new SpecialOffers to offerList for each string
 
-        if(unchosenSkus.size()<reqNoItems) {return;}
+        if(unchosenSkus.size()<reqNoItems) {
+            // remove duplicates
+            
+            return;}
 
         if(reqNoItems==1){
             for(String sku:unchosenSkus){
@@ -40,3 +43,4 @@ public class ComboOffers {
         return combos;
     }
 }
+
