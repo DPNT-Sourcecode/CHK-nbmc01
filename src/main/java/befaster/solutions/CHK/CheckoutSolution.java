@@ -83,7 +83,11 @@ public class CheckoutSolution {
         return totalPrice;
     }
 
-    public static ArrayList<String> makeCombinations(ArrayList<String> unchosenSkus, int reqNoItems,)
+    public ArrayList<String> makeCombinations(ArrayList<String> unchosenSkus, int reqNoItems, String accumulatedCombo) {
         // need to generate list of strings of all possible combinations of skus for new type of offers
         // can then add new SpecialOffers to offerList for each string
+        return null;
+
+
+    }
 }

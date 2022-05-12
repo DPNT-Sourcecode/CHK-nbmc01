@@ -2,6 +2,8 @@ package befaster.solutions.CHK;
 
 import junit.framework.TestCase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CheckoutSolutionTest extends TestCase {
@@ -53,4 +55,10 @@ public class CheckoutSolutionTest extends TestCase {
         assert(Objects.equals(chk.checkout("RRRHPPRRRRRJQQRRQRPHPZPKHKHPPPPPH"),expectedCost));
     }
 
+    public void testMakeCombinations() {
+        chk = new CheckoutSolution();
+        List<String> unchosenSkus = new ArrayList<>();
+        unchosenSkus.add("A");
+        chk.makeCombinations()
+    }
 }
