@@ -42,4 +42,3 @@ public class CheckoutSolutionTest extends TestCase {
     }
 
 }
-
