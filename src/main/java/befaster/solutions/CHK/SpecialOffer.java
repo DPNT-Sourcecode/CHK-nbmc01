@@ -21,6 +21,10 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         this.saving = fullPriceTotal - this.offerPrice;
     }
 
+    public int apply(String remainingSkus){
+        
+    }
+
     @Override
     public int compareTo(SpecialOffer o) {
         if(this.saving>o.saving){

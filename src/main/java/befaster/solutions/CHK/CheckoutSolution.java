@@ -27,7 +27,10 @@ public class CheckoutSolution {
         // then can chew through, remainingSkusToProcess prioritising biggest saving
         // think this is 'Greedy' approach? Think ok because question says 'offers can be safely combined'
         // I've read this to mean, 'local best solution will provide global best'
-        // Appears to be true for 
+        // Appears to be true for current price table anyway. ie always cheaper to take free B if available than use 2 for 45 deal
+        // excuse over commenting, thinking outloud. Will delete soon!
+
+
 
 //        for(char thisSku:skusCharArr){
 //            if(!validItemMap.containsKey(thisSku)){
