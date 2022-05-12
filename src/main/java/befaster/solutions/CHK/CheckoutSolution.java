@@ -3,7 +3,7 @@ package befaster.solutions.CHK;
 import java.util.*;
 
 public class CheckoutSolution {
-    public Integer checkout(String SKUs) {
+    public Integer checkout(String skus) {
 
         Map<Character,Item> validItemMap = new HashMap<>();
         validItemMap.put('A',new Item('A',50));
@@ -19,33 +19,40 @@ public class CheckoutSolution {
         offersList.add(new SpecialOffer(40,"EEB",validItemMap));
         Collections.sort(offersList); // use overridden compareTo method to sort so highest saving at top of list
 
-        char[] skusCharArr = SKUs.toCharArray();
+//        char[] skusCharArr = skus.toCharArray();
         int totalPrice = 0;
-        String remainingSkusToProcess = SKUs;
-        for(char thisSku:skusCharArr){
-            if(!validItemMap.containsKey(thisSku)){
-                return -1;
-            }else{
-                int skuCount=0;
-                // count number of items of this particular sku
-                while(remainingSkusToProcess.indexOf(thisSku)!=-1){
-                    skuCount++;
-                    remainingSkusToProcess = remainingSkusToProcess.replaceFirst(Character.toString(thisSku),"");
-                }
-                // check for bogOffs
-                Item bogOffItem = validItemMap.get(thisSku).getBogOffItem();
-                if(bogOffItem!=null){
-                    int bogOffBuy = validItemMap.get(thisSku).getBogOffBuy();
-                    int bogOffLots = skuCount/bogOffBuy;
-                    int noFreeItems = bogOffLots*validItemMap.get(thisSku).getBogOffGet();
-                    for(int freeItemID=1;freeItemID<=noFreeItems;freeItemID++){
-                        remainingSkusToProcess = remainingSkusToProcess.replaceFirst(bogOffItem.getName(),"");
-                    }
-                }
-                // increment total price
-                totalPrice+=validItemMap.get(thisSku).calcPrice(skuCount);
-            }
-        }
+        String remainingSkusToProcess = skus;
+
+        // need a new method that returns price if successful, -1 if not:  int SpecialOffer.apply(String remainingSkusToProcess)
+        // then can chew through, remainingSkusToProcess prioritising biggest saving
+        // think this is 'Greedy' approach? Think ok because question says 'offers can be safely combined'
+        // I've read this to mean, 'local best solution will provide global best'
+        // Appears to be true for 
+
+//        for(char thisSku:skusCharArr){
+//            if(!validItemMap.containsKey(thisSku)){
+//                return -1;
+//            }else{
+//                int skuCount=0;
+//                // count number of items of this particular sku
+//                while(remainingSkusToProcess.indexOf(thisSku)!=-1){
+//                    skuCount++;
+//                    remainingSkusToProcess = remainingSkusToProcess.replaceFirst(Character.toString(thisSku),"");
+//                }
+//                // check for bogOffs
+//                Item bogOffItem = validItemMap.get(thisSku).getBogOffItem();
+//                if(bogOffItem!=null){
+//                    int bogOffBuy = validItemMap.get(thisSku).getBogOffBuy();
+//                    int bogOffLots = skuCount/bogOffBuy;
+//                    int noFreeItems = bogOffLots*validItemMap.get(thisSku).getBogOffGet();
+//                    for(int freeItemID=1;freeItemID<=noFreeItems;freeItemID++){
+//                        remainingSkusToProcess = remainingSkusToProcess.replaceFirst(bogOffItem.getName(),"");
+//                    }
+//                }
+//                // increment total price
+//                totalPrice+=validItemMap.get(thisSku).calcPrice(skuCount);
+//            }
+//        }
         return totalPrice;
     }
 
@@ -118,5 +125,6 @@ public class CheckoutSolution {
 //        }
 //    }
 }
+
 
 

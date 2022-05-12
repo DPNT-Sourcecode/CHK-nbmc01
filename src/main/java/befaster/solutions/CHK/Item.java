@@ -1,20 +1,20 @@
 package befaster.solutions.CHK;
 
 public class Item {
-    private char SKU;
+    private char sku;
     private int fullPrice;
 
-    public Item(char SKU, int fullPrice) {
-        this.SKU = SKU;
+    public Item(char sku, int fullPrice) {
+        this.sku = sku;
         this.fullPrice = fullPrice;
     }
 
-    public char getSKU() {
-        return SKU;
+    public char getSku() {
+        return sku;
     }
 
-    public void setSKU(char SKU) {
-        this.SKU = SKU;
+    public void setSku(char sku) {
+        this.sku = sku;
     }
 
     public int getFullPrice() {
@@ -25,3 +25,4 @@ public class Item {
         this.fullPrice = fullPrice;
     }
 }
+

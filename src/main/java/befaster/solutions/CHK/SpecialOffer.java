@@ -13,9 +13,9 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         this.itemsPurchased = itemsPurchased;
         this.mapOfValidItems = mapOfValidItems;
         int fullPriceTotal = 0;
-        for(char thisSKU:itemsPurchased.toCharArray()){
-            // get full price of thisSKU and add to fullPriceTotal
-            Item thisItem = mapOfValidItems.get(thisSKU);
+        for(char thisSku:itemsPurchased.toCharArray()){
+            // get full price of thisSku and add to fullPriceTotal
+            Item thisItem = mapOfValidItems.get(thisSku);
             fullPriceTotal += thisItem.getFullPrice();
         }
         this.saving = fullPriceTotal - this.offerPrice;
@@ -32,4 +32,5 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         }
     }
 }
+
 
