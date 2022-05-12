@@ -20,7 +20,7 @@ public class ComboOffers {
         // I've just adapted what I can find out there to my purposes. I found the following links particularly useful:
         // https://stackoverflow.com/questions/4240080/generating-all-permutations-of-a-given-string
         // https://en.wikipedia.org/wiki/Combination#Enumerating_k-combinations
-        // 
+        // https://hmkcode.com/calculate-find-all-possible-combinations-of-an-array-using-java/
 
         if(unchosenSkus.size()<reqNoItems) {return;}
 
@@ -47,4 +47,5 @@ public class ComboOffers {
         return combos;
     }
 }
+
 
