@@ -25,7 +25,7 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         for(char skuChar:itemsPurchased.toCharArray()){
             int index = remainingSkus.indexOf(skuChar);
             if(index!=-1){
-                remainingSkus.replaceFi
+                remainingSkus = remainingSkus.substring(0,index)
             }
         }
         if(remainingSkus.matches(offerRegex)){
@@ -45,6 +45,7 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         }
     }
 }
+
 
 
 
