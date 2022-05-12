@@ -22,7 +22,7 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
     }
 
     public int apply(String remainingSkus){
-        // DO THIS NEXT
+        if(remainingSkus.matches())
         return -1;
     }
 
@@ -37,3 +37,4 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         }
     }
 }
+
