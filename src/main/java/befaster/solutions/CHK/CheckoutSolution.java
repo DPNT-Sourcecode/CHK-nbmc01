@@ -1,9 +1,6 @@
 package befaster.solutions.CHK;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CheckoutSolution {
     public Integer checkout(String SKUs) {
@@ -16,7 +13,11 @@ public class CheckoutSolution {
         validItemMap.put('E',new Item('E',40));
 
         List<SpecialOffer> offersList = new ArrayList<>();
-        offersList.add(new SpecialOffer())
+        offersList.add(new SpecialOffer(130,"AAA",validItemMap));
+        offersList.add(new SpecialOffer(200,"AAAAA",validItemMap));
+        offersList.add(new SpecialOffer(45,"BB",validItemMap));
+        offersList.add(new SpecialOffer(40,"EEB",validItemMap));
+        Collections.sort(offersList); // use overridden compareTo method to sort so highest saving at top of list
 
         char[] skusCharArr = SKUs.toCharArray();
         int totalPrice = 0;
@@ -117,4 +118,5 @@ public class CheckoutSolution {
 //        }
 //    }
 }
+
 
