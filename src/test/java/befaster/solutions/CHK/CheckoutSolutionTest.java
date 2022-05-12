@@ -41,4 +41,9 @@ public class CheckoutSolutionTest extends TestCase {
         assert(Objects.equals(chk.checkout("EEABAEABBBEBEAAE"),expectedCost));
     }
 
+    public void testCheckout_bogOffF(){
+        chk = new CheckoutSolution();
+        assert(Objects.equals(chk.checkout("FFF"),20));
+    }
+
 }

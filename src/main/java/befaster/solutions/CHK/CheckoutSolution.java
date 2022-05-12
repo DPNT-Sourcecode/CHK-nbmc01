@@ -11,6 +11,7 @@ public class CheckoutSolution {
         validItemMap.put('C',new Item('C',20));
         validItemMap.put('D',new Item('D',15));
         validItemMap.put('E',new Item('E',40));
+        validItemMap.put('F',new Item('F',10));
 
         // check input valid
         for(char thisSku:skus.toCharArray()){
@@ -24,6 +25,7 @@ public class CheckoutSolution {
         offersList.add(new SpecialOffer(200,"AAAAA",validItemMap));
         offersList.add(new SpecialOffer(45,"BB",validItemMap));
         offersList.add(new SpecialOffer(80,"EEB",validItemMap));
+        offersList.add(new SpecialOffer(20,"FFF",validItemMap));
         Collections.sort(offersList,Collections.reverseOrder()); // use overridden compareTo method to sort so highest saving at top of list
 
         int totalPrice = 0;
