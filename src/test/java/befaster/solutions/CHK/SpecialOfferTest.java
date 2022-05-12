@@ -16,9 +16,9 @@ public class SpecialOfferTest extends TestCase {
         validItemMap.put('E',new Item('E',40));
 
         SpecialOffer specialOffer = new SpecialOffer(130,"AAA",validItemMap);
-        assert(((Integer)specialOffer.apply("AAAAA")).equals(130));
-        assert(((Integer)specialOffer.apply("ABAA")).equals(130));
-        assert(((Integer)specialOffer.apply("AA")).equals(-1));
+        assert((specialOffer.applyOfferToSku("AAAAA")).contains("aaa"));
+        assert((specialOffer.applyOfferToSku("ABAA")).contains("aaa"));
+        assert((specialOffer.applyOfferToSku("AA")).equals("AA"));
 
     }
 }
