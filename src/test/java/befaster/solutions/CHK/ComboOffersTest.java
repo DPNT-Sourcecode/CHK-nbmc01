@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class ComboOffersTest extends TestCase {
 
@@ -23,9 +24,9 @@ public class ComboOffersTest extends TestCase {
         }
 
         comboOffers.makeCombinations(unchosenSkus, reqNoItems, "");
-        List<String> allPossibleCombos = comboOffers.getCombos();
-        // there should be 9 combinations of 3 letters in 2 positions including repeats (eg AB and BA)
-        assert (Objects.equals(allPossibleCombos.size(), 9));
+        Set<String> allPossibleCombos = comboOffers.getCombos();
+        // there should be 6 combinations of 3 letters in 2 positions without repeats (eg AB and BA)
+        assert (Objects.equals(allPossibleCombos.size(), 6));
 
     }
 }

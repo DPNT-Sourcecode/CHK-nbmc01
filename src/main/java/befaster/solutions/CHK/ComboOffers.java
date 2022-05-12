@@ -1,24 +1,22 @@
 package befaster.solutions.CHK;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ComboOffers {
 
-    private List<String> combos;
+    private Set<String> combos;
 
     public ComboOffers() {
-        combos = new ArrayList<>();
+        combos = new HashSet<>();
     }
 
     public void makeCombinations(List<String> unchosenSkus, int reqNoItems, String accumulatedCombo) {
         // need to generate list of strings of all possible combinations of skus for new type of offers
         // can then add new SpecialOffers to offerList for each string
 
-        if(unchosenSkus.size()<reqNoItems) {
-            // remove duplicates
-            
-            return;}
+        if(unchosenSkus.size()<reqNoItems) {return;}
 
         if(reqNoItems==1){
             for(String sku:unchosenSkus){
@@ -39,7 +37,7 @@ public class ComboOffers {
         }
     }
 
-    public List<String> getCombos() {
+    public Set<String> getCombos() {
         return combos;
     }
 }
