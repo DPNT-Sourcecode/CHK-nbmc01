@@ -82,4 +82,7 @@ public class CheckoutSolution {
 
         return totalPrice;
     }
+
+    public static ArrayList<String> makeCombinations(ArrayList<String>)
 }
+
