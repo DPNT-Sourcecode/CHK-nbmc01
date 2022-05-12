@@ -22,7 +22,10 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
     }
 
     public int apply(String remainingSkus){
-        if(remainingSkus.matches())
+        String offerRegex = 
+        if(remainingSkus.matches(offerRegex)){
+            return this.offerPrice;
+        }
         return -1;
     }
 
@@ -37,4 +40,5 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         }
     }
 }
+
 
