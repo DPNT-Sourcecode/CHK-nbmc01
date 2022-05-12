@@ -21,18 +21,23 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         this.saving = fullPriceTotal - this.offerPrice;
     }
 
-    public int apply(String remainingSkus){
-        for(char skuChar:itemsPurchased.toCharArray()){
-            int index = remainingSkus.indexOf(skuChar);
+    public String applyOfferToSku(String skuToProcess){
+        String processedSku = skuToProcess;
+        for(char offerSkuChar:this.itemsPurchased.toCharArray()){
+            int index = processedSku.indexOf(offerSkuChar);
             if(index!=-1){
-                char[] remainingSkusCharArr = remainingSkus.toCharArray();
-                remainingSkusCharArr[index] = 
+                char[] remainingSkusCharArr = processedSku.toCharArray();
+                // indexOf is case sensitive, wanted to mark presence of counted sku without deleting information (for debug)
+                remainingSkusCharArr[index] = Character.toLowerCase(remainingSkusCharArr[index]);
+            }else{
+                return skuToProcess; //needs remaining Skus must contain all offerSkuChar, if not, return orriginal sku
             }
         }
-        if(remainingSkus.matches(offerRegex)){
-            return this.offerPrice;
-        }
-        return -1;
+        return processedSku; // if made it through entire list of offerSkuChar then remainingSkus contains items for offer
+    }
+
+    public int getOfferPrice() {
+        return offerPrice;
     }
 
     @Override
@@ -46,3 +51,4 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         }
     }
 }
+
