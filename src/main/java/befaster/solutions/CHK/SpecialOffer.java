@@ -26,4 +26,3 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         return 0;
     }
 }
-
