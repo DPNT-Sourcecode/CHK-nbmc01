@@ -49,7 +49,7 @@ public class CheckoutSolutionTest extends TestCase {
     public void testCheckout_megaBuy(){
         chk = new CheckoutSolution();
         //5Hs, 2Ks, 10Ps, 11Rs, 3Qs, J and Z
-        int expectedCost = 45+150+200*2+11*50+60+50;
+        int expectedCost = 45+120+200*2+11*50+60+21;
         assert(Objects.equals(chk.checkout("RRRHPPRRRRRJQQRRQRPHPZPKHKHPPPPPH"),expectedCost));
     }
 
@@ -59,7 +59,6 @@ public class CheckoutSolutionTest extends TestCase {
         assert(Objects.equals(chk.checkout("SSSZZZ"),90));
         assert(Objects.equals(chk.checkout("TTX"),45));
         assert(Objects.equals(chk.checkout("ZYSS"),45+20));
-
     }
 
 }
