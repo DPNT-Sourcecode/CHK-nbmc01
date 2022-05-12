@@ -25,4 +25,3 @@ public class Item {
         this.fullPrice = fullPrice;
     }
 }
-
