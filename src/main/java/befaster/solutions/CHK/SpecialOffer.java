@@ -23,10 +23,10 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
 
     public String applyOfferToSku(String skuToProcess){
         String processedSku = skuToProcess;
+        char[] remainingSkusCharArr = processedSku.toCharArray();
         for(char offerSkuChar:this.itemsPurchased.toCharArray()){
             int index = processedSku.indexOf(offerSkuChar);
             if(index!=-1){
-                char[] remainingSkusCharArr = processedSku.toCharArray();
                 // indexOf is case sensitive, wanted to mark presence of counted sku without deleting information (for debug)
                 remainingSkusCharArr[index] = Character.toLowerCase(remainingSkusCharArr[index]);
             }else{
@@ -51,3 +51,4 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
         }
     }
 }
+
