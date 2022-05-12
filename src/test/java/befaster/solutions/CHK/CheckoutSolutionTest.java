@@ -17,6 +17,8 @@ public class CheckoutSolutionTest extends TestCase {
     }
 
     public void testCheckout_invalidInputs(){
+        chk = new CheckoutSolution();
+        int aResult = chk.checkout("+CC");
         assert(chk.checkout("+CC").equals(-1));
         assert(chk.checkout("aCC").equals(-1));
     }
