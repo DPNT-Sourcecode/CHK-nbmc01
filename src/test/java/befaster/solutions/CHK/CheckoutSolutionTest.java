@@ -24,6 +24,7 @@ public class CheckoutSolutionTest extends TestCase {
 
     public void testCheckout_chooseCorrectOffer(){
         chk = new CheckoutSolution();
+        int aResult = chk.checkout("AAAAA");
         assert(chk.checkout("AAAAA").equals(200));
         assert(chk.checkout("AAAAAA").equals(250));
     }

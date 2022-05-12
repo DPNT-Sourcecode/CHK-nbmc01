@@ -16,10 +16,8 @@ public class SpecialOfferTest extends TestCase {
         validItemMap.put('E',new Item('E',40));
 
         SpecialOffer specialOffer = new SpecialOffer(130,"AAA",validItemMap);
-        String processedSku = specialOffer.applyOfferToSku("AAAAA");
-        assert(processedSku.equals("aaaAA"));
+        assert(specialOffer.applyOfferToSku("AAAAA").equals("aaaAA"));
         assert((specialOffer.applyOfferToSku("ABAA")).equals("aBaa"));
         assert((specialOffer.applyOfferToSku("AA")).equals("AA"));
-
     }
 }
