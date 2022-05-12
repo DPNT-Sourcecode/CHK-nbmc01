@@ -1,5 +1,6 @@
 package befaster.solutions.CHK;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ComboOffers {
@@ -7,7 +8,7 @@ public class ComboOffers {
     private List<String> combos;
 
     public ComboOffers() {
-
+        combos = new ArrayList<>();
     }
 
     public void makeCombinations(List<String> unchosenSkus, int reqNoItems, String accumulatedCombo) {
