@@ -2,6 +2,8 @@ package befaster.solutions.CHK;
 
 import junit.framework.TestCase;
 
+import java.util.Objects;
+
 public class CheckoutSolutionTest extends TestCase {
 
     private CheckoutSolution chk;
@@ -25,7 +27,7 @@ public class CheckoutSolutionTest extends TestCase {
     public void testCheckout_chooseCorrectOffer(){
         chk = new CheckoutSolution();
         int aResult = chk.checkout("AAAAA");
-        assert(chk.checkout("AAAAA").equals(200));
+        assert(Objects.equals(aResult,200));
         assert(chk.checkout("AAAAAA").equals(250));
     }
 

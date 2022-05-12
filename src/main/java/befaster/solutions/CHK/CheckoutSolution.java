@@ -17,7 +17,7 @@ public class CheckoutSolution {
         offersList.add(new SpecialOffer(200,"AAAAA",validItemMap));
         offersList.add(new SpecialOffer(45,"BB",validItemMap));
         offersList.add(new SpecialOffer(40,"EEB",validItemMap));
-        Collections.sort(offersList); // use overridden compareTo method to sort so highest saving at top of list
+        Collections.sort(offersList,Collections.reverseOrder()); // use overridden compareTo method to sort so highest saving at top of list
 
         int totalPrice = 0;
         String remainingSkusToProcess = skus;
@@ -44,3 +44,4 @@ public class CheckoutSolution {
         return totalPrice;
     }
 }
+
