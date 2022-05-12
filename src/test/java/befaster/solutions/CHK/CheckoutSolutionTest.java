@@ -20,15 +20,14 @@ public class CheckoutSolutionTest extends TestCase {
 
     public void testCheckout_bogOff(){
         chk = new CheckoutSolution();
-        assert(chk.checkout("EEB").equals(80));
-        assert(chk.checkout("BEE").equals(80));
+        assert(Objects.equals(chk.checkout("EEB"),80));
+        assert(Objects.equals(chk.checkout("BEE"),80));
     }
 
     public void testCheckout_chooseCorrectOffer(){
         chk = new CheckoutSolution();
-        int aResult = chk.checkout("AAAAA");
-        assert(Objects.equals(aResult,200));
-        assert(chk.checkout("AAAAAA").equals(250));
+        assert(Objects.equals(chk.checkout("AAAAA"),200));
+        assert(Objects.equals(chk.checkout("AAAAAA"),250));
     }
 
 }
