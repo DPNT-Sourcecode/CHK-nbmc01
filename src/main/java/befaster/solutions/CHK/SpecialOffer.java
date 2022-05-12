@@ -22,7 +22,7 @@ public class SpecialOffer implements Comparable<SpecialOffer> {
     }
 
     public int apply(String remainingSkus){
-        
+        return -1;
     }
 
     @Override
